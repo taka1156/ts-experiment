@@ -1,5 +1,4 @@
-const sum = (a: number, b: number) => a + b;
+import { sum } from "./sum";
 
-export {
-    sum
-}
+const result = sum(3, 2);
+console.log(result);

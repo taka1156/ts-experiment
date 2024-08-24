@@ -1,34 +1,39 @@
 {
   "name": "ts-experiment",
-  "dockerComposeFile": ["./docker-compose.yml"],
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
   "service": "app",
   "workspaceFolder": "/workspace",
-  "vscode": {
-    "extensions": [
-      "MS-CEINTL.vscode-language-pack-ja",
-      "dbaeumer.vscode-eslint", 
-      "esbenp.prettier-vscode",
-      "streetsidesoftware.code-spell-checker",
-      "username.errorlens"
-    ]
-  },
-  "settings": {
-    "terminal.integrated.cwd.": "pj",
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "editor.codeActionOnSave": {
-      "source.fixAll.eslint": "explicit"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "MS-CEINTL.vscode-language-pack-ja",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "username.errorlens"
+      ]
     },
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "eslint.codeActionsOnSave.mode": "all",
-    "eslint.workingDirectories": ["./pj/"],
-    "eslit.format.enable": false,
-    "prettier": {
-      "configPath": "./pj/.prettierrc.json",
-      "ignorePath": "./pj/.prettierrcignore"
-    },
-    "files.insertFinalNewline": true,
-    "errorLens.enabledDiagnosticLevels": ["error", "warning"]
+    "settings": {
+      "terminal.integrated.cwd.": "pj",
+      "terminal.integrated.defaultProfile.linux": "bash",
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true,
+      "editor.codeActionOnSave": {
+        "source.fixAll.eslint": "explicit"
+      },
+      "eslint.codeActionsOnSave.mode": "all",
+      "eslit.format.enable": false,
+      "prettier": {
+        "configPath": "./pj/.prettierrc.json",
+        "ignorePath": "./pj/.prettierrcignore"
+      },
+      "files.insertFinalNewline": true,
+      "errorLens.enabledDiagnosticLevels": [
+        "error",
+        "warning"
+      ]
+    }
   }
 }
