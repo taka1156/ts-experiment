@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    tty: true
+    volumes:
+      - ../:workspace
+    environment:
+      - WATCHPACK_POLLING=true
+    ports:
+      8080: 8080
+  
