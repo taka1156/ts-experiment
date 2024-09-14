@@ -28,7 +28,7 @@ describe('textareaテスト', () => {
   it('input', async () => {
     const { user } = setup(<Content />);
 
-    const input = await screen.findByTestId<HTMLTextAreaElement>('inputTarget');
+    const input = screen.getByTestId<HTMLTextAreaElement>('inputTarget');
 
     const testInputValue = 'テスト入力';
     await user.clear(input);
