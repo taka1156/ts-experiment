@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BaseError } from '../BaseError';
+import { BaseError } from './BaseError';
 
 type ContentProps = React.ComponentProps<'textarea'>;
 

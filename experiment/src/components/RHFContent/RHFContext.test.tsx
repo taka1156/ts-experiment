@@ -1,8 +1,9 @@
 import { ReactElement } from 'react';
 import { describe, expect, it, afterEach } from 'vitest';
 import userEvent from '@testing-library/user-event';
-import { cleanup, render, screen } from '@testing-library/react';
-import { Content } from './Content';
+import { cleanup, render, renderHook, screen } from '@testing-library/react';
+import { RHFContent } from './RHFContent';
+import { useRHFFormState } from '.';
 
 const setup = (jsx: ReactElement) => {
   return {
@@ -17,16 +18,17 @@ describe('textareaテスト', () => {
   });
 
   it('スナップショット', () => {
-    const args: React.ComponentProps<'textarea'> = {
-      defaultValue: 'test'
-    };
-    const { dom } = setup(<Content {...args} />);
+    const { result } = renderHook(() => useRHFFormState());
+
+    const { dom } = setup(<RHFContent {...result.current} />);
 
     expect(dom).toMatchSnapshot();
   });
 
   it('input', async () => {
-    const { user, dom } = setup(<Content />);
+    const { result } = renderHook(() => useRHFFormState());
+
+    const { user, dom } = setup(<RHFContent {...result.current} />);
 
     const input = screen.getByTestId<HTMLTextAreaElement>('inputTarget');
 
@@ -40,7 +42,9 @@ describe('textareaテスト', () => {
   });
 
   it('バリデーション', async () => {
-    const { user, dom } = setup(<Content />);
+    const { result } = renderHook(() => useRHFFormState());
+
+    const { user, dom } = setup(<RHFContent {...result.current} />);
 
     const input = screen.getByTestId<HTMLTextAreaElement>('inputTarget');
 
