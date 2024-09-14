@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BaseError } from '../BaseError';
 
-type ContentProps = React.ComponentPropsWithRef<'textarea'>;
+type ContentProps = React.ComponentProps<'textarea'>;
 
 const Content = (props?: ContentProps) => {
   const [state, setState] = useState(false);
