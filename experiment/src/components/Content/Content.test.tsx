@@ -11,9 +11,18 @@ const setup = (jsx: ReactElement) => {
   };
 };
 
-describe('textareaインプットテスト', () => {
+describe('textareaテスト', () => {
   afterEach(() => {
     cleanup();
+  });
+
+  it('スナップショット', () => {
+    const args: React.ComponentPropsWithRef<'textarea'> = {
+      defaultValue: 'test'
+    };
+    const { dom } = setup(<Content {...args} />);
+
+    expect(dom).toMatchSnapshot();
   });
 
   it('input', async () => {
