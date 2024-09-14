@@ -1,8 +1,6 @@
 {
   "name": "ts-experiment",
-  "dockerComposeFile": [
-    "./docker-compose.yml"
-  ],
+  "dockerComposeFile": "./docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspace",
   "customizations": {
@@ -13,27 +11,24 @@
         "esbenp.prettier-vscode",
         "streetsidesoftware.code-spell-checker",
         "username.errorlens"
-      ]
-    },
-    "settings": {
-      "terminal.integrated.cwd.": "${containerWorkspaceFolder}/experiment",
-      "editor.defaultFormatter": "esbenp.prettier-vscode",
-      "editor.formatOnSave": true,
-      "editor.codeActionOnSave": {
-        "source.fixAll.eslint": "explicit"
-      },
-      "eslint.codeActionsOnSave.mode": "all",
-      "eslint.workingDirectories": ["experiment"],
-      "eslint.format.enable": false,
-      "prettier": {
-        "configPath": "./experiment/.prettierrc.json",
-        "ignorePath": "./experiment/.prettierrcignore"
-      },
-      "files.insertFinalNewline": true,
-      "errorLens.enabledDiagnosticLevels": [
-        "error",
-        "warning"
-      ]
+      ],
+      "settings": {
+        "terminal.integrated.cwd": "${containerWorkspaceFolder}/experiment",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "eslint.codeActionsOnSave.mode": "all",
+        "eslint.workingDirectories": ["./experiment/"],
+        "eslint.format.enable": false,
+        "prettier": {
+          "configPath": "./experiment/.prettierrc.json",
+          "ignorePath": "./experiment/.prettierrcignore"
+        },
+        "files.insertFinalNewline": true,
+        "errorLens.enabledDiagnosticLevels": ["error", "warning"]
+      }
     }
   }
 }
