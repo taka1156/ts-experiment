@@ -17,7 +17,13 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["vite.config.ts"]
+  "typeRoot": ["@types"],
+  "exclude": ["node_modules"],
+  "include": ["vite.config.ts", "vitest.config.mts", "**/*.ts", "**/*.tsx"]
 }
