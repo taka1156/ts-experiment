@@ -7,12 +7,16 @@
     "preview": "vite preview",
     "vite": "vite-node",
     "test": "vitest",
+    "test-ui": "vitest --ui",
     "test-update": "vitest --update",
     "test-cov": "vitest run --coverage"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.53.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

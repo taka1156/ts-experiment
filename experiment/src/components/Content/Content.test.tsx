@@ -26,7 +26,7 @@ describe('textareaテスト', () => {
   });
 
   it('input', async () => {
-    const { user } = setup(<Content />);
+    const { user, dom } = setup(<Content />);
 
     const input = screen.getByTestId<HTMLTextAreaElement>('inputTarget');
 
@@ -35,5 +35,22 @@ describe('textareaテスト', () => {
     await user.type(input, testInputValue);
 
     expect(input.value).toBe(testInputValue);
+
+    expect(dom).toMatchSnapshot();
+  });
+
+  it('バリデーション', async () => {
+    const { user, dom } = setup(<Content />);
+
+    const input = screen.getByTestId<HTMLTextAreaElement>('inputTarget');
+
+    await user.clear(input);
+    await user.tab(); // = onBlur
+
+    const error = screen.getByTestId<HTMLParagraphElement>('errorTarget');
+
+    expect(error.textContent).toBe('必須入力です');
+
+    expect(dom).toMatchSnapshot();
   });
 });

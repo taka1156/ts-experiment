@@ -8,7 +8,7 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    reporters: ['html'],
+    reporters: ['default', 'html'],
     coverage: {
       thresholds: {
         statements: 80,
