@@ -6,7 +6,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "vite": "vite-node",
-    "test": "vitest",
+    "test": "vitest run",
     "test-ui": "vitest --ui",
     "test-update": "vitest --update",
     "test-cov": "vitest run --coverage"

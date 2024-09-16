@@ -1,7 +1,13 @@
 import { ReactElement } from 'react';
 import { describe, expect, it, afterEach } from 'vitest';
 import userEvent from '@testing-library/user-event';
-import { cleanup, render, renderHook, screen } from '@testing-library/react';
+import {
+  cleanup,
+  render,
+  renderHook,
+  screen,
+  waitFor
+} from '@testing-library/react';
 import { RHFContent } from './RHFContent';
 import { useRHFFormState } from '.';
 
@@ -51,10 +57,13 @@ describe('textareaテスト', () => {
     await user.clear(input);
     await user.tab(); // = onBlur
 
-    const error = screen.getByTestId<HTMLParagraphElement>('errorTarget');
+    dom.rerender(<RHFContent {...result.current} />); // 再レンダリング追加
 
-    expect(error.textContent).toBe('必須入力です');
+    waitFor(() => {
+      const error = screen.getByTestId<HTMLParagraphElement>('errorTarget');
 
-    expect(dom).toMatchSnapshot();
+      expect(error.textContent).toBe('必須入力です。');
+      expect(dom).toMatchSnapshot();
+    });
   });
 });

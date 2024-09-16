@@ -9,7 +9,7 @@ const rhfSchema = z.object({
 export type RHFSchema = z.infer<typeof rhfSchema>;
 
 const useRHFFormState = () => {
-  const { register, formState } = useForm<RHFSchema>({
+  const { register, formState, setValue } = useForm<RHFSchema>({
     resolver: zodResolver(rhfSchema),
     mode: 'onChange',
     reValidateMode: 'onSubmit',
@@ -20,7 +20,7 @@ const useRHFFormState = () => {
 
   const { errors } = formState;
 
-  return { errors, register };
+  return { errors, register, setValue };
 };
 
 export { useRHFFormState };
